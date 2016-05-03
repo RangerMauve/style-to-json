@@ -1,0 +1,39 @@
+{
+  "name": "style-to-json",
+  "version": "1.0.0",
+  "description": "Takes an element's style and converts it to JSON that's compatible with css-layout",
+  "main": "index.js",
+  "scripts": {
+    "test": "browserify test.js | tape-run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RangerMauve/style-to-json.git"
+  },
+  "keywords": [
+    "style",
+    "key",
+    "matches",
+    "element",
+    "css",
+    "json"
+  ],
+  "author": "rangermauve",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RangerMauve/style-to-json/issues"
+  },
+  "homepage": "https://github.com/RangerMauve/style-to-json",
+  "dependencies": {
+    "camel-to-snake": "^1.1.0",
+    "dom-matches": "^2.0.0",
+    "parse-css-dimension": "^1.0.1",
+    "xtend": "^4.0.1"
+  },
+  "devDependencies": {
+    "browserify": "^13.0.0",
+    "insert-css": "^0.2.0",
+    "tape": "^4.5.1",
+    "tape-run": "^2.1.3"
+  }
+}
