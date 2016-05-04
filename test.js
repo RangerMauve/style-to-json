@@ -4,7 +4,7 @@ var insertCSS = require("insert-css");
 var styleToJSON = require("./");
 
 
-var styleString = "div {flex: 1; width: 10em; height: 100%; }" +
+var styleString = "div {flex: 1; width: 10em; height: 100%; padding: 20px;}" +
 	" * { margin-top: 4px; flex-direction: row; justify-content: flex-end; }" +
 	" .nomatching {flex-wrap: nowrap}";
 insertCSS(styleString);
@@ -26,7 +26,8 @@ tape(function(t) {
 		height: 100,
 		marginTop: 4,
 		flexDirection: "row",
-		justifyContent: "flex-end"
+		justifyContent: "flex-end",
+		padding: 20
 	};
 
 	t.deepEqual(resultStyle, expectedStyle, "style object gets parsed properly");

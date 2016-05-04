@@ -22,6 +22,21 @@ var STRING_FIELDS = [
 	"position"
 ];
 
+var IGNORE_IF_PRESENT = {
+	"marginLeft": "margin",
+	"marginRight": "margin",
+	"marginTop": "margin",
+	"marginBottom": "margin",
+	"paddingLeft": "padding",
+	"paddingRight": "padding",
+	"paddingTop": "padding",
+	"paddingBottom": "padding",
+	"borderLeftWidth": "borderWidth",
+	"borderRightWidth": "borderWidth",
+	"borderTopWidth": "borderWidth",
+	"borderBottomWidth": "borderWidth",
+};
+
 module.exports = getStyle;
 
 function getStyle(element) {
@@ -50,6 +65,9 @@ function getRules(element) {
 function findFields(rule) {
 	var result = {};
 	NUMBERS_FIELDS.forEach(function(field) {
+		var canIgnore = IGNORE_IF_PRESENT[field];
+		var shouldIgnore = canIgnore && rule.getPropertyValue(canIgnore);
+		if (shouldIgnore) return;
 		var fieldSnaked = camelToSnake(field, "-");
 		var value = rule.getPropertyValue(fieldSnaked);
 		if (!value) return;
